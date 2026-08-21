@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://btprojects.co.in/sitemap.xml

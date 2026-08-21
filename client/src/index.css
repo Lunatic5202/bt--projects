@@ -1,0 +1,1507 @@
+/*
+ * BT PROJECTS — Hydrogrid Editorial theme
+ * Deep navy (#0A1F44 family) as structure, crisp white as space.
+ * Blueprint hairlines, IBM Plex Mono section labels, Archivo display.
+ * Signature color: deep navy oklch(0.28 0.09 262).
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-light: var(--navy-light);
+  --color-water-paper: var(--water-paper);
+  --color-bolt: var(--bolt);
+  --font-display: "Archivo", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Brand navy anchors */
+  --navy: oklch(0.28 0.09 262);          /* #0A1F44-ish deep navy */
+  --navy-deep: oklch(0.22 0.075 262);    /* darker panel navy */
+  --navy-light: oklch(0.42 0.11 260);    /* steel blue */
+  --water-paper: oklch(0.972 0.006 250); /* pale blue paper tint */
+  --bolt: oklch(0.5 0.19 25);            /* logo red bolt accent */
+
+  --primary: var(--navy);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.25 0.04 262);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.04 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.04 262);
+  --secondary: var(--water-paper);
+  --secondary-foreground: oklch(0.3 0.06 262);
+  --muted: var(--water-paper);
+  --muted-foreground: oklch(0.5 0.03 262);
+  --accent: oklch(0.94 0.015 255);
+  --accent-foreground: var(--navy);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.01 255);
+  --input: oklch(0.9 0.01 255);
+  --ring: var(--navy-light);
+  --chart-1: var(--navy-light);
+  --chart-2: var(--navy);
+  --chart-3: oklch(0.6 0.09 255);
+  --chart-4: oklch(0.75 0.06 250);
+  --chart-5: var(--bolt);
+  --sidebar: oklch(0.985 0.003 250);
+  --sidebar-foreground: oklch(0.25 0.04 262);
+  --sidebar-primary: var(--navy);
+  --sidebar-primary-foreground: oklch(0.99 0.002 250);
+  --sidebar-accent: var(--water-paper);
+  --sidebar-accent-foreground: var(--navy);
+  --sidebar-border: oklch(0.9 0.01 255);
+  --sidebar-ring: var(--navy-light);
+}
+
+.dark {
+  /* Site is light-first (white pages + navy panels); dark keeps the palette coherent */
+  --navy: oklch(0.28 0.09 262);
+  --navy-deep: oklch(0.22 0.075 262);
+  --navy-light: oklch(0.42 0.11 260);
+  --water-paper: oklch(0.972 0.006 250);
+  --bolt: oklch(0.5 0.19 25);
+  --primary: var(--navy-light);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --background: oklch(0.22 0.075 262);
+  --foreground: oklch(0.95 0.005 250);
+  --card: oklch(0.26 0.08 262);
+  --card-foreground: oklch(0.95 0.005 250);
+  --popover: oklch(0.26 0.08 262);
+  --popover-foreground: oklch(0.95 0.005 250);
+  --secondary: oklch(0.3 0.08 262);
+  --secondary-foreground: oklch(0.95 0.005 250);
+  --muted: oklch(0.3 0.08 262);
+  --muted-foreground: oklch(0.75 0.02 255);
+  --accent: oklch(0.32 0.09 262);
+  --accent-foreground: oklch(0.95 0.005 250);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: var(--navy-light);
+  --chart-1: oklch(0.6 0.09 255);
+  --chart-2: var(--navy-light);
+  --chart-3: oklch(0.75 0.06 250);
+  --chart-4: oklch(0.85 0.03 250);
+  --chart-5: var(--bolt);
+  --sidebar: oklch(0.26 0.08 262);
+  --sidebar-foreground: oklch(0.95 0.005 250);
+  --sidebar-primary: var(--navy-light);
+  --sidebar-primary-foreground: oklch(0.99 0.002 250);
+  --sidebar-accent: oklch(0.32 0.09 262);
+  --sidebar-accent-foreground: oklch(0.95 0.005 250);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: var(--navy-light);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Archivo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Section index label — blueprint sheet numbering */
+  .section-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: "";
+    display: inline-block;
+    width: 2.5rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  /* Blueprint hairline grid background */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(to right, oklch(1 0 0 / 6%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 6%) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .blueprint-grid-light {
+    background-image:
+      linear-gradient(to right, oklch(0.28 0.09 262 / 5%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.28 0.09 262 / 5%) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Nav link hover — fluid wave underline that flows in like a current */
+  .nav-link {
+    position: relative;
+    transition: color 400ms var(--fluid);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    border-radius: 9999px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms var(--fluid-wave);
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .nav-link.is-active {
+    color: var(--bolt);
+    font-weight: 700;
+  }
+  .nav-link.is-active::after {
+    background: var(--bolt);
+    transform: scaleX(1);
+  }
+  .mobile-nav-link {
+    position: relative;
+    transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out), padding-left 180ms var(--ease-out);
+  }
+  .mobile-nav-link.is-active {
+    padding-left: 0.8rem;
+    background: oklch(0.5 0.19 25 / 9%);
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .mobile-nav-link.is-active::before {
+    position: absolute;
+    top: 0.7rem;
+    bottom: 0.7rem;
+    left: 0;
+    width: 3px;
+    content: "";
+    background: var(--bolt);
+  }
+
+  /* Fluid card: lifts and ripples on hover like water displaced by an object */
+  .fluid-card {
+    transition:
+      transform 450ms var(--fluid),
+      box-shadow 450ms var(--fluid);
+  }
+  .fluid-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -18px oklch(0.28 0.09 262 / 32%);
+  }
+  /* Wave shimmer accent bar inside cards */
+  .fluid-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 0 0 9999px 9999px;
+    background: linear-gradient(90deg, var(--navy-light), var(--navy) 45%, oklch(0.55 0.12 255));
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 400ms var(--fluid);
+  }
+  .fluid-card:hover::before {
+    opacity: 1;
+    animation: flowShimmer 2.4s linear infinite;
+  }
+  @keyframes flowShimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+}
+
+/* ==========================================================================
+   WATER THEME — fluid easings & wave motion
+   --fluid:     soft liquid ease-out (slow start, gentle settle)
+   --fluid-wave: buoyant ease with a hint of overshoot
+   All loops gated behind prefers-reduced-motion.
+   ========================================================================== */
+:root {
+  --fluid: cubic-bezier(0.37, 0, 0.15, 1);        /* slow liquid ease-out */
+  --fluid-wave: cubic-bezier(0.28, 0.11, 0.32, 1); /* buoyant rise */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll reveal: rises like an object surfacing — long, soft, slight drift */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 900ms var(--fluid),
+      transform 900ms var(--fluid-wave);
+    transition-delay: calc(var(--delay, 0ms) + 60ms);
+    will-change: transform, opacity;
+  }
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Floating WhatsApp button entrance */
+  .whatsapp-fab {
+    animation: fabEntrance 900ms var(--fluid-wave) 900ms both;
+  }
+  @keyframes fabEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(26px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  /* The FAB bobs like a buoy on calm water */
+  .whatsapp-fab-inner {
+    animation: bobbing 4s var(--fluid) infinite;
+  }
+  @keyframes bobbing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  /* Ripple rings spreading like a drop hitting still water */
+  .whatsapp-fab::before,
+  .whatsapp-fab::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: oklch(0.62 0.11 165 / 22%);
+    z-index: -1;
+  }
+  .whatsapp-fab::after {
+    animation: ripple 4s var(--fluid) 1.2s infinite;
+  }
+  .whatsapp-fab::before {
+    animation: ripple 4s var(--fluid) 0s infinite;
+  }
+  @keyframes ripple {
+    0% {
+      transform: scale(0.85);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.9;
+    }
+    80%, 100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  /* Gentle float pulse for the WhatsApp button (soft, 3s cycle) */
+  .whatsapp-fab::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    background: oklch(0.62 0.11 165 / 20%);
+    z-index: -1;
+    animation: fabPulse 3s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+  }
+  @keyframes fabPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    80% {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+  }
+  /* Stagger utility — a travelling wave passes through children */
+  .stagger > *:nth-child(1) { --delay: 0ms; }
+  .stagger > *:nth-child(2) { --delay: 110ms; }
+  .stagger > *:nth-child(3) { --delay: 220ms; }
+  .stagger > *:nth-child(4) { --delay: 330ms; }
+  .stagger > *:nth-child(5) { --delay: 440ms; }
+  .stagger > *:nth-child(6) { --delay: 550ms; }
+  .stagger > *:nth-child(7) { --delay: 660ms; }
+  .stagger > *:nth-child(8) { --delay: 770ms; }
+  /* Hairline draws itself like water flowing along a channel */
+  .draw-line {
+    transform-origin: left;
+    animation: drawLine 1.6s var(--fluid) forwards;
+  }
+  @keyframes drawLine {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* Wave divider: two layered SVG waves undulate gently and continuously */
+  .wave-move-1 {
+    animation: waveDrift 9s ease-in-out infinite alternate;
+  }
+  .wave-move-2 {
+    animation: waveDrift 12s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes waveDrift {
+    from { transform: translateX(-12px); }
+    to { transform: translateX(12px); }
+  }
+
+  /* Hero slow drift: ambient water-surface sway for background accents */
+  .drift-slow {
+    animation: driftSlow 14s var(--fluid) infinite alternate;
+  }
+  @keyframes driftSlow {
+    from { transform: translate(0, 0); }
+    to { transform: translate(10px, -8px); }
+  }
+
+  /* Button / link ripple on hover: flowing highlight sweep */
+  .fluid-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+      transform 350ms var(--fluid-wave),
+      box-shadow 350ms var(--fluid),
+      background-color 350ms var(--fluid);
+  }
+  .fluid-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, oklch(1 0 0 / 16%) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 650ms var(--fluid-wave);
+  }
+  .fluid-btn:hover::after {
+    transform: translateX(120%);
+  }
+  .fluid-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -12px oklch(0.28 0.09 262 / 45%);
+  }
+  .water-button-ripple {
+    position: absolute;
+    width: var(--water-ripple-size);
+    height: var(--water-ripple-size);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(
+      circle,
+      oklch(0.94 0.05 218 / 46%) 0%,
+      oklch(0.78 0.13 226 / 29%) 38%,
+      oklch(0.72 0.16 233 / 0%) 70%
+    );
+    box-shadow:
+      0 0 0 1px oklch(0.92 0.06 218 / 28%) inset,
+      0 0 20px oklch(0.78 0.15 226 / 34%);
+    transform: translate(-50%, -50%) scale(0.04);
+    animation: waterButtonRipple 640ms var(--fluid-wave) forwards;
+  }
+  @keyframes waterButtonRipple {
+    0% {
+      transform: translate(-50%, -50%) scale(0.04);
+      opacity: 0.82;
+    }
+    70% {
+      opacity: 0.24;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .whatsapp-fab,
+  .whatsapp-fab::before,
+  .whatsapp-fab::after,
+  .whatsapp-fab-inner,
+  .wave-move-1,
+  .wave-move-2,
+  .drift-slow {
+    animation: none;
+  }
+.fluid-btn::after,
+  .water-button-ripple,
+  .fluid-card,
+  .fluid-card::before {
+    transition: none;
+  }
+}
+
+/* Services parallax: independent copy, index, and visual tracks drift at
+   different rates as a service row crosses the reading window. */
+.services-parallax-row {
+  position: relative;
+  isolation: isolate;
+}
+.services-parallax-index,
+.services-parallax-copy,
+.services-parallax-visual,
+.services-parallax-image {
+  will-change: transform;
+}
+.services-parallax-image-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--water-paper);
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .services-parallax-row {
+    min-height: 39rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-parallax-index,
+  .services-parallax-copy,
+  .services-parallax-visual,
+  .services-parallax-image {
+    will-change: auto;
+  }
+}
+
+/* Button press feedback — a soft sink like pressing into water */
+button:active {
+  transform: scale(0.96);
+  transition: transform 300ms var(--fluid-wave);
+}
+/* ==========================================================================
+   WATER PRELOADER — droplet fall, impact ripple, rising fill
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* --- Stage 1: the droplet falls and splashes. Gated so it begins the
+      moment the drop stage mounts. --- */
+  .preloader-canvas-droplet {
+    top: 0;
+    width: 132px;
+    height: 132px;
+    will-change: transform, opacity;
+    animation: canvasDropletFall 980ms var(--fluid-wave) both;
+  }
+  @keyframes canvasDropletFall {
+    0% {
+      transform: translate(-50%, -110px) scaleX(0.78) scaleY(1.18);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    68% {
+      transform: translate(-50%, 98px) scaleX(0.82) scaleY(1.24);
+      opacity: 1;
+    }
+    86% {
+      transform: translate(-50%, 133px) scaleX(1.3) scaleY(0.68);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 133px) scaleX(1.48) scaleY(0.5);
+      opacity: 0;
+    }
+  }
+  .preloader-drop-ring {
+    width: 154px;
+    height: 44px;
+    left: calc(50% - 77px);
+    bottom: -22px;
+    transform-origin: center;
+    animation: splashRing 920ms var(--fluid-wave) 770ms both;
+  }
+  .preloader-drop-ring-2 {
+    width: 154px;
+    height: 44px;
+    left: calc(50% - 77px);
+    bottom: -22px;
+    transform-origin: center;
+    animation: splashRing 920ms var(--fluid-wave) 870ms both;
+  }
+  /* Development-only visual hold: a readable droplet just before impact.
+     The class is only emitted when import.meta.env.DEV is true. */
+  .preloader-drop-preview .preloader-canvas-droplet {
+    transform: translate(-50%, 126px) scale(1);
+    opacity: 1;
+    animation: none;
+  }
+  .preloader-drop-preview .preloader-drop-ring {
+    bottom: -22px;
+    transform: scale(0.4);
+    opacity: 0.58;
+    animation: none;
+  }
+  .preloader-drop-preview .preloader-drop-ring-2 {
+    bottom: -22px;
+    transform: scale(0.8);
+    opacity: 0.28;
+    animation: none;
+  }
+  @keyframes splashRing {
+    0% {
+      transform: scale(0.04, 0.07);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* --- Big centred logo: it emerges in place at the splash centre, so its
+     visual centre never drops below the screen centre before the shared flight. */
+  .preloader-logo-cluster {
+    animation: logoSettle 580ms var(--fluid-wave) both;
+  }
+  .preloader-logo-cluster-hidden {
+    display: none;
+  }
+  .preloader-logo-big {
+    animation: logoBreathe 2.4s var(--fluid) infinite;
+  }
+  @keyframes logoSettle {
+    0% {
+      transform: scale(0.92);
+      opacity: 0;
+    }
+    24% {
+      transform: scale(0.975);
+      opacity: 0.84;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes logoBreathe {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      transform: translateY(-50%) scale(1.045);
+    }
+  }
+  .preloader-logo-word,
+  .preloader-logo-tag {
+    animation: logoSettle 380ms var(--fluid-wave) 10ms both;
+  }
+  .preloader-logo-line {
+    animation: logoSettle 380ms var(--fluid-wave) 40ms both;
+  }
+  .preloader-logo-wave-track {
+    stroke: rgba(193, 241, 255, 0.24);
+    stroke-width: 1.35;
+  }
+  .preloader-logo-wave {
+    stroke: rgba(229, 252, 255, 0.98);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-dasharray: 10 13;
+    filter: drop-shadow(0 0 3px rgba(121, 224, 255, 0.98)) drop-shadow(0 0 7px rgba(21, 172, 232, 0.72));
+    animation: waterWaveFlow 1.55s linear 400ms infinite;
+  }
+  @keyframes waterWaveFlow {
+    from { stroke-dashoffset: 46; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* --- The wave: rises from the bottom, lifting like a tide.
+      Gated by .preloader-wave-active so the tide begins only at the
+      wave stage, not on first render. */
+  .preloader-wave-active {
+    animation: waveRise 950ms var(--fluid-wave) forwards;
+  }
+  @keyframes waveRise {
+    0% { height: 0; }
+    100% { height: 100%; }
+  }
+  .preloader-wave-active .preloader-wave-svg { opacity: 0; }
+  .preloader-wave-active .preloader-wave-path-1,
+  .preloader-wave-active .preloader-wave-path-2,
+  .preloader-wave-active .preloader-wave-path-3 {
+    animation: waveReveal 950ms var(--fluid-wave) forwards;
+  }
+  .preloader-wave-active .preloader-wave-path-1 { animation-delay: 50ms; }
+  .preloader-wave-active .preloader-wave-path-2 { animation-delay: 120ms; }
+  .preloader-wave-active .preloader-wave-path-3 { animation-delay: 190ms; }
+  @keyframes waveReveal {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Wave paths keep undulating as the wash completes */
+  .preloader-wave-active .preloader-wave-path-1 {
+    animation-name: waveDrift2, waveReveal;
+  }
+
+  @keyframes waveDrift2 {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-60px); }
+  }
+
+  /* --- Shared logo flight: the target is measured from the live header logo
+      at runtime. The only animated property is transform, so the same mark
+      glides continuously into its real destination without a visual switch. */
+  .preloader-logo-fly {
+    width: var(--fly-size);
+    height: var(--fly-size);
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  .preloader-logo-fly-active {
+    animation: logoFlyShared 780ms cubic-bezier(0.38, 0.02, 0.4, 1) forwards;
+  }
+  @keyframes logoFlyShared {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-50% + var(--fly-dx)), calc(-50% + var(--fly-dy))) scale(var(--fly-scale));
+      opacity: 1;
+    }
+  }
+  .preloader-logo-fly-landed {
+    animation: none;
+    transform: translate(calc(-50% + var(--fly-dx)), calc(-50% + var(--fly-dy))) scale(var(--fly-scale));
+    opacity: 0;
+    transition: opacity 160ms var(--fluid);
+  }
+
+  /* The brand copy dissolves while the matching logo starts travelling from
+     the exact same centre point. Keeping the cluster at scale(1) removes the
+     visible pre-flight shrink/hold. */
+  .preloader-logo-cluster-hide {
+    animation: clusterDissolve 120ms var(--fluid) forwards;
+  }
+  .preloader-logo-cluster-hide .preloader-logo-big {
+    animation: none;
+    transform: translateY(-50%) scale(1);
+  }
+  @keyframes clusterDissolve {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* --- Header logo ripple on hover: rings expand outward like a drop
+      touching still water, fading as they grow. --- */
+  .header-logo > span:nth-child(1),
+  .header-logo > span:nth-child(2) {
+    animation-name: headerRipple;
+    animation-duration: 1.4s;
+    animation-timing-function: var(--fluid-wave);
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+  }
+  .header-logo > span:nth-child(2) {
+    animation-delay: 0.35s;
+  }
+  .group:hover .header-logo > span,
+  .header-logo:hover > span {
+    animation-play-state: running;
+  }
+  html.preloader-running [data-header-logo-image] {
+    opacity: 0;
+  }
+  html.preloader-running.preloader-logo-landed [data-header-logo-image] {
+    opacity: 1;
+    transition: opacity 160ms var(--fluid);
+  }
+  @keyframes headerRipple {
+    0% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    70%,
+    100% {
+      transform: scale(1.75);
+      opacity: 0;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preloader-logo-cluster,
+  .preloader-logo-big,
+  .preloader-logo-word,
+  .preloader-logo-tag,
+  .preloader-logo-line,
+  .preloader-logo-wave,
+  .preloader-wave-active,
+  .preloader-wave-path-1,
+  .preloader-wave-path-2,
+  .preloader-wave-path-3,
+  .preloader-logo-fly-active,
+  .preloader-logo-cluster-hide {
+    animation: none;
+  }
+  .preloader-wave-active {
+    height: 0;
+  }
+  .header-logo > span {
+    animation: none;
+  }
+}
+
+/* Completed-projects scroll pinning. The tall outer track creates scroll range;
+   its sticky panel holds the viewport while the four project cards progress laterally. */
+.projects-pin {
+  display: none;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .projects-stack {
+    display: none;
+  }
+  .projects-pin {
+    display: block;
+    height: 400vh;
+    position: relative;
+    --projects-progress: 0;
+  }
+  .projects-pin-sticky {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    margin-left: -2rem;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    overflow: hidden;
+  }
+  .projects-pin-panel {
+    width: min(calc(100vw - 4rem), 1120px);
+    margin: 0 auto;
+    justify-self: center;
+    box-sizing: border-box;
+    padding: 2rem;
+    border: 1px solid oklch(0.28 0.09 262 / 12%);
+    background: linear-gradient(135deg, oklch(0.99 0.003 250) 0%, oklch(0.96 0.012 250) 100%);
+    box-shadow: 0 24px 64px -40px oklch(0.28 0.09 262 / 45%);
+  }
+  .projects-pin-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .projects-pin-progress {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .projects-pin-progress span {
+    height: 2px;
+    background: oklch(0.28 0.09 262 / 16%);
+    transform-origin: left;
+    transition: background-color 220ms var(--fluid), transform 220ms var(--fluid-wave);
+  }
+  .projects-pin-progress span.is-active {
+    background: var(--bolt);
+    transform: scaleY(1.7);
+  }
+  .projects-pin-viewport {
+    overflow: hidden;
+  }
+  .projects-pin-rail {
+    display: flex;
+    width: 400%;
+    transform: translateX(calc(-75% * var(--projects-progress)));
+    will-change: transform;
+  }
+  .projects-pin-card {
+    width: 25%;
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) minmax(18rem, 0.9fr);
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 0.25rem;
+  }
+  .projects-pin-content {
+    min-width: 0;
+  }
+}
+
+/* Why BT Projects — reference gallery and Motion-style image lightbox. */
+.why-gallery-tile {
+  position: relative;
+  display: block;
+  min-height: 18rem;
+  overflow: hidden;
+  isolation: isolate;
+  color: white;
+  text-align: left;
+  background: var(--navy);
+}
+.why-gallery-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: transform 560ms var(--fluid-wave), filter 420ms var(--fluid), opacity 260ms var(--fluid);
+  will-change: transform;
+}
+.why-gallery-tile.is-ready .why-gallery-image { opacity: 1; }
+.why-gallery-loading {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(112deg, transparent 20%, oklch(0.5 0.07 250 / 26%) 45%, transparent 70%),
+    linear-gradient(135deg, oklch(0.23 0.07 262), oklch(0.32 0.09 255));
+  background-size: 220% 100%, 100% 100%;
+  opacity: 1;
+  transition: opacity 220ms var(--fluid);
+}
+.why-gallery-tile.is-ready .why-gallery-loading { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .why-gallery-tile.is-loading .why-gallery-loading { animation: whyGalleryLoading 1.45s linear infinite; }
+  @keyframes whyGalleryLoading {
+    from { background-position: 180% 0, 0 0; }
+    to { background-position: -40% 0, 0 0; }
+  }
+}
+.why-gallery-tile:hover .why-gallery-image,
+.why-gallery-tile:focus-visible .why-gallery-image {
+  transform: scale(1.075);
+  filter: saturate(1.08) contrast(1.04);
+}
+.why-gallery-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, oklch(0.12 0.04 262 / 8%) 18%, oklch(0.15 0.06 262 / 80%) 100%),
+    linear-gradient(90deg, oklch(0.25 0.08 262 / 44%), transparent 60%);
+}
+.why-gallery-copy {
+  position: absolute;
+  z-index: 2;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.35rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.why-gallery-eyebrow,
+.why-lightbox-index,
+.why-lightbox-help {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.why-gallery-eyebrow { color: oklch(0.89 0.035 235); }
+.why-gallery-title {
+  font-family: "Archivo", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+.why-gallery-expand {
+  position: absolute;
+  z-index: 2;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid oklch(1 0 0 / 42%);
+  background: oklch(0.2 0.07 262 / 42%);
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 220ms var(--fluid), transform 220ms var(--fluid-wave), background-color 220ms var(--fluid);
+}
+.why-gallery-tile:hover .why-gallery-expand,
+.why-gallery-tile:focus-visible .why-gallery-expand {
+  opacity: 1;
+  transform: translateY(0);
+}
+.why-gallery-tile:focus-visible,
+.why-lightbox-close:focus-visible,
+.why-lightbox-nav:focus-visible {
+  outline: 2px solid oklch(0.86 0.1 230);
+  outline-offset: -2px;
+}
+
+.why-lightbox-backdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: oklch(0.15 0.055 262 / 92%);
+  backdrop-filter: blur(12px);
+}
+.why-lightbox-shell {
+  width: min(100%, 1120px);
+  max-height: calc(100svh - 2.5rem);
+  overflow: auto;
+  border: 1px solid oklch(1 0 0 / 16%);
+  background: oklch(0.19 0.065 262);
+  box-shadow: 0 32px 90px oklch(0.04 0.02 262 / 55%);
+  color: white;
+}
+.why-lightbox-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid oklch(1 0 0 / 12%);
+}
+.why-lightbox-index { color: oklch(0.86 0.03 240); }
+.why-lightbox-index span { color: oklch(0.7 0.025 240); }
+.why-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid oklch(1 0 0 / 20%);
+  background: oklch(1 0 0 / 5%);
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 180ms var(--fluid), border-color 180ms var(--fluid);
+}
+.why-lightbox-close:hover { background: oklch(1 0 0 / 12%); border-color: oklch(1 0 0 / 38%); }
+.why-lightbox-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: min(64svh, 42rem);
+}
+.why-lightbox-image-wrap {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: oklch(0.14 0.05 262);
+}
+.why-lightbox-image {
+  display: block;
+  width: 100%;
+  max-height: min(64svh, 42rem);
+  object-fit: contain;
+}
+.why-lightbox-nav {
+  display: grid;
+  width: 3.75rem;
+  height: 100%;
+  min-height: 8rem;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: oklch(0.82 0.025 240);
+  transition: color 180ms var(--fluid), background-color 180ms var(--fluid);
+}
+.why-lightbox-nav:hover { background: oklch(1 0 0 / 7%); color: white; }
+.why-lightbox-caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: end;
+  padding: 1.35rem 1.5rem 1.5rem;
+  border-top: 1px solid oklch(1 0 0 / 12%);
+}
+.why-lightbox-caption h3 {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.why-lightbox-caption > div > p {
+  max-width: 48rem;
+  margin: 0.55rem 0 0;
+  color: oklch(0.8 0.02 240);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.why-lightbox-help { margin: 0; color: oklch(0.64 0.02 240); text-align: right; }
+
+@media (max-width: 767px) {
+  .why-gallery-tile { min-height: 16rem; }
+  .why-gallery-expand { opacity: 1; transform: translateY(0); }
+  .why-lightbox-backdrop { padding: 0.6rem; }
+  .why-lightbox-shell { max-height: calc(100svh - 1.2rem); }
+  .why-lightbox-main { min-height: 0; grid-template-columns: 2.8rem minmax(0, 1fr) 2.8rem; }
+  .why-lightbox-nav { width: 2.8rem; min-height: 12rem; }
+  .why-lightbox-caption { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.1rem; }
+  .why-lightbox-help { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-gallery-image,
+  .why-gallery-loading,
+  .why-gallery-expand,
+  .why-lightbox-close,
+  .why-lightbox-nav { transition: none; }
+}
+
+/* Compact mobile reading path: preserves every content block while reducing
+   vertical repetition through tighter rhythm and touch-friendly project/gallery rails. */
+.mobile-project-hint { display: none; }
+.enquiry-success {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  min-height: 23rem;
+}
+.enquiry-success-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid oklch(0.28 0.09 262 / 22%);
+  border-radius: 999px;
+  color: var(--navy);
+  background: oklch(0.91 0.04 220 / 58%);
+  box-shadow: 0 12px 26px -18px oklch(0.28 0.09 262 / 45%);
+}
+.enquiry-success-action { width: fit-content; }
+
+@media (max-width: 767px) {
+  [id] { scroll-margin-top: 5.25rem; }
+  .mobile-section { padding-top: 3.75rem !important; padding-bottom: 3.75rem !important; }
+  .hero-content { padding-top: 6rem !important; padding-bottom: 3.5rem !important; }
+  .hero-stat-strip { margin-top: 2.75rem !important; padding-top: 1.25rem !important; gap: 1.25rem !important; }
+  .overview-layout { gap: 2rem !important; }
+  .overview-card-grid { margin-top: 1.75rem !important; }
+  .overview-bobble-card { padding: 1.125rem !important; }
+  .services-heading { margin-bottom: 2rem !important; gap: 1.5rem !important; }
+  .services-parallax-row { gap: 1.25rem !important; padding: 2rem 0 !important; }
+  .services-parallax-image { aspect-ratio: 16 / 9 !important; }
+  .operations-step { padding: 1.25rem !important; }
+  #operations .grid.bg-white\/15 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #operations .grid.bg-white\/15 .mt-6 { margin-top: 1.25rem; }
+  .why-principle-card { padding: 1.25rem !important; }
+  .why-gallery-panel { margin-top: 2.5rem !important; }
+  .why-gallery-grid {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding: 0.75rem;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+  .why-gallery-grid .why-gallery-tile { flex: 0 0 min(84vw, 21rem); min-height: 13.5rem; scroll-snap-align: start; }
+  .mobile-project-hint { display: block; }
+  .projects-stack {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(86vw, 22rem);
+    gap: 0.75rem;
+    overflow-x: auto;
+    border: 0 !important;
+    padding: 0 0 0.75rem;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+  .projects-stack > article {
+    gap: 1rem !important;
+    padding: 1.25rem !important;
+    border: 1px solid oklch(0.28 0.09 262 / 12%) !important;
+    scroll-snap-align: start;
+  }
+  .projects-stack .project-image img { aspect-ratio: 16 / 9 !important; }
+  .contact-layout { gap: 2.5rem !important; }
+  .contact-form-panel { padding: 1.5rem !important; }
+  .enquiry-success { min-height: 18rem; gap: 0.85rem; }
+  .enquiry-success-action { width: 100%; text-align: center; }
+  .office-map-image { aspect-ratio: 2 / 1 !important; }
+  .office-map-meta { margin-top: 0.75rem !important; }
+  .footer-content { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+  .footer-grid { gap: 2.5rem !important; }
+  .footer-bottom { margin-top: 2.5rem !important; }
+}
+
+/* Phase 33: phone-scale correction. The public site keeps its editorial
+   hierarchy, but mobile gets a denser proportion system rather than desktop
+   modules simply stacked at full scale. */
+@media (max-width: 767px) {
+  .container { padding-inline: 1rem; }
+  .mobile-section { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .hero-content { padding-top: 5.25rem !important; padding-bottom: 2.5rem !important; }
+  .hero-content h1 { font-size: clamp(2.1rem, 10.5vw, 2.65rem) !important; line-height: 1.04 !important; }
+  .hero-content > div > p:not(.section-label) { font-size: 0.875rem; line-height: 1.6; }
+  .hero-content .section-label { font-size: 0.625rem; letter-spacing: 0.14em; }
+  .hero-stat-strip { margin-top: 2rem !important; padding-top: 1rem !important; gap: 0.9rem !important; }
+  .hero-stat-strip .font-display { font-size: 1.35rem !important; }
+  .hero-stat-strip .font-mono { font-size: 0.56rem !important; letter-spacing: 0.1em !important; }
+
+  #overview h2, #services h2, #operations h2, #projects h2, #why h2, #contact h2 { font-size: 1.65rem !important; line-height: 1.08 !important; }
+  #overview > .container > div > p, #services .services-heading > p, #operations .max-w-2xl > p, #projects > .container > div > p, #why .mb-14 > p { font-size: 0.875rem; line-height: 1.55; }
+  .overview-layout { gap: 1.5rem !important; }
+  .overview-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.25rem !important; }
+  .overview-bobble-card { padding: 0.875rem !important; }
+  .overview-bobble-card svg { width: 1.2rem; height: 1.2rem; }
+  .overview-bobble-card p.mt-4 { margin-top: 0.7rem; font-size: 0.7rem; line-height: 1.25; }
+  .overview-bobble-card p.mt-2 { margin-top: 0.45rem; font-size: 0.73rem; line-height: 1.4; }
+
+  .services-heading { margin-bottom: 1.5rem !important; }
+  .services-parallax-row { padding: 1.5rem 0 !important; gap: 0.85rem !important; }
+  .services-parallax-row h3 { font-size: 1.05rem !important; }
+  .services-parallax-row p { font-size: 0.8rem; line-height: 1.5; }
+  .services-parallax-row ul { margin-top: 0.8rem !important; gap: 0.35rem !important; }
+  .services-parallax-row li { font-size: 0.75rem !important; }
+  .services-parallax-image { aspect-ratio: 2.25 / 1 !important; }
+
+  #operations .max-w-2xl { max-width: 100%; }
+  #operations .mt-14 { margin-top: 1.75rem !important; }
+  .operations-step { padding: 1rem !important; }
+  .operations-step svg { width: 1.2rem; height: 1.2rem; }
+  .operations-step h3 { margin-top: 0.85rem !important; font-size: 0.82rem; }
+  .operations-step p { margin-top: 0.5rem !important; font-size: 0.72rem !important; line-height: 1.42; }
+
+  #projects .mb-10 { margin-bottom: 1.5rem !important; }
+  #projects .mb-8 { margin-bottom: 1rem !important; }
+  .projects-stack { grid-auto-columns: min(76vw, 17rem); gap: 0.6rem; }
+  .projects-stack > article { padding: 1rem !important; gap: 0.75rem !important; }
+  .projects-stack h3 { font-size: 0.95rem !important; }
+  .projects-stack p, .projects-stack li { font-size: 0.73rem !important; line-height: 1.42; }
+  .projects-stack ul { margin-top: 0.65rem !important; gap: 0.25rem !important; }
+  .projects-stack .project-image img { aspect-ratio: 2.1 / 1 !important; }
+
+  #why .mb-14 { margin-bottom: 1.5rem !important; }
+  .why-principles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem !important; }
+  .why-principle-card { padding: 0.9rem !important; }
+  .why-principle-card svg { width: 1.15rem; height: 1.15rem; }
+  .why-principle-card h3 { margin-top: 0.75rem !important; font-size: 0.76rem; line-height: 1.22; }
+  .why-principle-card p.mt-3 { margin-top: 0.45rem !important; font-size: 0.7rem !important; line-height: 1.38; }
+  .why-principle-card p.mt-5 { display: none; }
+  .why-gallery-panel { margin-top: 1.75rem !important; }
+  .why-gallery-panel > div:first-child { gap: 0.75rem !important; padding: 1rem !important; }
+  .why-gallery-grid .why-gallery-tile { flex-basis: min(72vw, 17rem); min-height: 10rem; }
+
+  .contact-layout { gap: 1.5rem !important; }
+  .contact-form-panel { padding: 1.1rem !important; }
+  .contact-form-panel > form > p { margin-bottom: 1rem !important; }
+  .contact-form-panel input, .contact-form-panel textarea { padding: 0.65rem 0.75rem !important; font-size: 0.82rem !important; }
+  .contact-form-panel textarea { min-height: 7rem; }
+  .contact-form-panel button { margin-top: 1.1rem !important; padding-block: 0.75rem !important; }
+  .enquiry-success { min-height: 15rem; }
+  .office-map-image { aspect-ratio: 2.4 / 1 !important; }
+  .office-map-meta { font-size: 0.62rem; }
+
+  .footer-content { padding-top: 2.5rem !important; padding-bottom: 2.25rem !important; }
+  .footer-grid { gap: 1.75rem !important; }
+  .footer-grid > div:first-child p { margin-top: 1rem !important; font-size: 0.78rem; }
+  .footer-grid .section-label { margin-bottom: 0.75rem !important; }
+  .footer-grid ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 1rem !important; }
+  .footer-grid ul li, .footer-grid ul a { font-size: 0.72rem !important; }
+  .footer-bottom { margin-top: 1.75rem !important; padding-top: 1rem !important; }
+  .footer-bottom p { font-size: 0.56rem !important; letter-spacing: 0.1em !important; }
+}
+
+/* Phase 34: replace the last tall repeated mobile stack with concise,
+   horizontally browsable records. All content remains available by swiping. */
+.mobile-service-hint { display: none; }
+
+/* Keep the landing composition self-contained in the initial viewport. */
+.hero-title-page {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.hero-title-page .hero-content {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.hero-title-page .hero-stat-strip { margin-top: auto; }
+
+/* Desktop navigation iOS-pointer adaptation: the browser cursor yields only
+   after the local custom cue has been activated by a precise mouse pointer. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .top-nav-ios-pointer.is-custom-pointer-active,
+  .top-nav-ios-pointer.is-custom-pointer-active * {
+    cursor: none !important;
+  }
+}
+
+/* Meet the Team — card-stack interaction. The deck is a role-led overview,
+   so it can be updated with approved individual profiles later without
+   changing the interaction or section structure. */
+.team-stack-shell { width: min(100%, 35rem); justify-self: end; }
+.team-stack-stage { position: relative; min-height: 25.5rem; }
+.team-stack-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 2rem;
+  border: 1px solid oklch(0.84 0.04 215 / 28%);
+  background:
+    linear-gradient(135deg, oklch(0.15 0.075 258 / 98%), oklch(0.11 0.055 258 / 98%)),
+    repeating-linear-gradient(0deg, transparent 0 26px, oklch(0.8 0.08 215 / 7%) 27px 28px);
+  box-shadow: 0 1.4rem 3.5rem oklch(0.04 0.03 260 / 34%);
+  touch-action: pan-y;
+}
+.team-stack-card.is-active { cursor: grab; }
+.team-stack-icon {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid oklch(0.86 0.06 215 / 26%);
+  color: var(--bolt);
+}
+.team-stack-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.team-stack-portrait {
+  width: 3.75rem;
+  height: 3.75rem;
+  flex: 0 0 auto;
+  border: 1px solid oklch(0.88 0.06 215 / 50%);
+  border-radius: 999px;
+  object-fit: cover;
+  background: oklch(0.25 0.08 255);
+  box-shadow: 0 0.7rem 1.8rem oklch(0.02 0.02 260 / 28%);
+}
+.team-stack-sample-label,
+.team-stack-role {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.team-stack-sample-label { color: var(--bolt); }
+.team-stack-name {
+  margin: 0.18rem 0 0;
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+.team-stack-role { margin-top: 0.15rem; color: oklch(0.84 0.02 240 / 75%); }
+.team-stack-focus li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: oklch(0.94 0.018 240 / 78%);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.team-stack-focus li::before {
+  width: 0.42rem;
+  height: 0.42rem;
+  content: "";
+  border: 1px solid var(--bolt);
+  border-radius: 999px;
+}
+.team-stack-control {
+  display: inline-grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid oklch(0.92 0.02 240 / 28%);
+  color: white;
+  transition: color 160ms var(--ease-out), background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.team-stack-control:hover { background: var(--bolt); color: var(--navy); }
+.team-stack-control:active { transform: scale(0.95); }
+.team-stack-control:focus-visible { outline: 2px solid var(--bolt); outline-offset: 3px; }
+@media (max-width: 767px) {
+  .mobile-service-hint { display: block; margin: -0.15rem 0 0.7rem; }
+  .services-parallax-list {
+    display: flex !important;
+    gap: 0.65rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-inline: -1rem;
+    padding: 0 1rem 0.7rem;
+    border: 0 !important;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+  .services-parallax-list > :not([hidden]) ~ :not([hidden]) { border-top-width: 0 !important; }
+  .services-parallax-row {
+    display: flex !important;
+    flex: 0 0 min(76vw, 17rem);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem !important;
+    min-height: 0;
+    padding: 0.95rem !important;
+    border: 1px solid oklch(0.28 0.09 262 / 14%);
+    background: oklch(0.99 0.006 250);
+    scroll-snap-align: start;
+  }
+  .services-parallax-index { margin: 0; font-size: 0.64rem !important; }
+  .services-parallax-copy { order: 1; }
+  .services-parallax-visual { order: 2; }
+  .services-parallax-row h3 { font-size: 0.96rem !important; line-height: 1.15; }
+  .services-parallax-row p { display: -webkit-box; overflow: hidden; margin-top: 0.5rem !important; font-size: 0.74rem; line-height: 1.42; -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+  .services-parallax-row ul { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; margin-top: 0.65rem !important; gap: 0.35rem !important; }
+  .services-parallax-row li { align-items: flex-start !important; gap: 0.3rem !important; font-size: 0.64rem !important; line-height: 1.3; }
+  .services-parallax-row li svg { width: 0.75rem; height: 0.75rem; margin-top: 0.05rem; }
+  .services-parallax-image { aspect-ratio: 2.55 / 1 !important; }
+
+  .hero-stat-strip { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0.45rem !important; }
+  .hero-stat-strip .font-mono { font-size: 0.5rem !important; line-height: 1.22; letter-spacing: 0.06em !important; }
+  .hero-stat-strip p.mt-2 { margin-top: 0.35rem !important; font-size: 0.6rem !important; line-height: 1.25; }
+  .overview-layout > div:nth-child(2) > p:nth-child(2) { margin-top: 0.7rem !important; font-size: 0.78rem; line-height: 1.45; }
+  .overview-card-grid { gap: 1px !important; }
+  .operations-step p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+  .why-gallery-panel { margin-top: 1.25rem !important; }
+  .contact-form-panel textarea { min-height: 5.5rem; }
+  .contact-layout > div:not(.contact-form-panel) { gap: 0.85rem !important; }
+  .office-map-image { aspect-ratio: 2.8 / 1 !important; }
+  .footer-content { padding-top: 2rem !important; padding-bottom: 1.8rem !important; }
+  .footer-grid { gap: 1.25rem !important; }
+
+  #team h2 { font-size: 1.65rem !important; line-height: 1.08 !important; }
+  .team-stack-layout { margin-top: 1.75rem !important; gap: 1.25rem !important; }
+  .team-stack-intro h3 { margin-top: 0.75rem !important; font-size: 1.2rem; }
+  .team-stack-intro > p:not(.team-stack-drag-hint) { margin-top: 0.65rem !important; font-size: 0.78rem; line-height: 1.45; }
+  .team-stack-drag-hint { display: none; }
+  .team-stack-shell { width: 100%; }
+  .team-stack-stage { min-height: 20rem; }
+  .team-stack-card { padding: 1.1rem; }
+  .team-stack-portrait { width: 3.15rem; height: 3.15rem; }
+  .team-stack-name { font-size: 0.9rem; }
+  .team-stack-sample-label, .team-stack-role { font-size: 0.52rem; }
+  .team-stack-card h3 { margin-top: 1rem !important; font-size: 1.45rem; }
+  .team-stack-card p { margin-top: 0.75rem !important; font-size: 0.76rem; line-height: 1.46; }
+  .team-stack-focus { padding-top: 1.2rem !important; gap: 0.45rem !important; }
+  .team-stack-focus li { font-size: 0.56rem; }
+  .team-stack-controls { margin-top: 1.65rem !important; padding-top: 0.8rem !important; }
+}

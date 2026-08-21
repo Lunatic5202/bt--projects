@@ -1,0 +1,17 @@
+{
+  "name": "BT Projects Private Limited",
+  "short_name": "BT Projects",
+  "description": "Water supply, wastewater management, and infrastructure operations and maintenance support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1F44",
+  "theme_color": "#0A1F44",
+  "icons": [
+    {
+      "src": "/manus-storage/bt-logo_026b8bce.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
