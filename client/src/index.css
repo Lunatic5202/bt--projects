@@ -145,11 +145,13 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground;
     font-family: "Archivo", sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -869,7 +871,7 @@ button:active {
     position: sticky;
     top: 0;
     width: 100vw;
-    margin-left: -2rem;
+    margin-left: calc(50% - 50vw);
     min-height: 100svh;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
