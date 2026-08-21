@@ -145,13 +145,11 @@
   }
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground;
     font-family: "Archivo", sans-serif;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -870,8 +868,7 @@ button:active {
   .projects-pin-sticky {
     position: sticky;
     top: 0;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    width: 100%;
     min-height: 100svh;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -879,7 +876,7 @@ button:active {
     overflow: hidden;
   }
   .projects-pin-panel {
-    width: min(calc(100vw - 4rem), 1120px);
+    width: min(calc(100% - 4rem), 1120px);
     margin: 0 auto;
     justify-self: center;
     box-sizing: border-box;
