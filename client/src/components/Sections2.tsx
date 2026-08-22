@@ -147,29 +147,29 @@ const WHY = [
 const WHY_GALLERY = [
   {
     id: "pump-room",
-    eyebrow: "01 — Pump care",
-    title: "Mechanical condition",
+    eyebrow: "01 — EQUIPMENT CARE",
+    title: "pump repairs",
     caption:
-      "Illustrative maintenance context: mechanical systems stay dependable when inspection, alignment, and preventive work are treated as one operating rhythm.",
-    alt: "Technician examining a water pump in a workshop",
+      "Supported by our efficient equipped maintenance repairhouse for all pumping systems, substation equipment, and chlorine equipment.",
+    alt: "Pump repairs in a maintenance repairhouse",
     src: "/manus-storage/pump-maintenance-workshop_f4afac72.jpeg",
   },
   {
     id: "network-view",
-    eyebrow: "02 — System view",
-    title: "Infrastructure at scale",
+    eyebrow: "02 — WATER QUALITY",
+    title: "chlorination system",
     caption:
-      "Illustrative network context: understanding the relationship between assets, access, and process flow helps teams plan work before a local issue becomes a service disruption.",
-    alt: "Aerial view of circular water treatment infrastructure",
+      "Specialized infrastructure works involving chlorine equipment and dosing systems for compliant water treatment.",
+    alt: "Chlorination equipment for water treatment",
     src: "/manus-storage/water-infrastructure-aerial_0c1429f5.jpg",
   },
   {
     id: "treatment-view",
-    eyebrow: "03 — Process discipline",
-    title: "Measured treatment",
+    eyebrow: "03 — SOURCE EXTRACTION",
+    title: "Raw water pumping",
     caption:
-      "Illustrative treatment context: dependable output comes from repeatable observation, clear records, and attention to the equipment that moves water through each stage.",
-    alt: "Aerial view of a wastewater treatment facility",
+      "Managing the critical first step with robust, heavy-duty pumping solutions designed for high-volume, uninterrupted flow.",
+    alt: "Raw water pumping infrastructure",
     src: "/manus-storage/wastewater-treatment-aerial_10c73ccd.jpg",
   },
 ] as const;
@@ -302,16 +302,16 @@ className="why-principle-card fluid-card relative bg-white border border-navy/12
           <div className="grid gap-6 p-6 md:grid-cols-[0.72fr_1.28fr] md:items-end md:p-8 border-b border-navy/12">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-navy/55">
-                Operational view — visual reference
+                Operational view – visual reference
               </p>
               <h3 className="mt-3 font-display text-2xl font-extrabold uppercase tracking-tight text-navy">
                 Look closer at the work behind reliable flow
               </h3>
             </div>
             <p className="max-w-2xl text-sm leading-relaxed text-navy/65 md:justify-self-end">
-              From mechanical attention at the pump to a system-level process
-              view, these illustrative scenes reflect the field disciplines we
-              bring to water and wastewater infrastructure.
+              From mechanical attention at the pump to specialized water
+              treatment processes, these field disciplines reflect our commitment
+              to keeping critical systems running safely and efficiently.
             </p>
           </div>
 
