@@ -1,5 +1,5 @@
 /*
- * Hydrogrid Editorial — Completed Projects.
+ * Hydrogrid Editorial — What We Deliver.
  * Desktop uses a scroll-pinned horizontal progression; mobile keeps a natural stack.
  */
 import { type CSSProperties, useEffect, useRef, useState } from "react";
@@ -16,38 +16,38 @@ export const PROJECTS = [
   {
     code: "BTP/PJ-01",
     img: IMG_RESERVOIR,
-    title: "Municipal elevated reservoir & distribution network",
-    scope: "Water supply",
+    title: "Government Water supply & Water Management",
+    scope: "WATER INFRASTRUCTURE",
     description:
-      "Supply, installation, and commissioning support for an elevated storage reservoir with an associated distribution network — pumps, valves, and instrumentation — extending clean water coverage to new zones.",
-    points: ["Elevated storage installation", "Distribution pipeline laying", "Pumping & control commissioning"],
+      "End-to-end development of essential water distribution networks including raw water pumping and flow management.",
+    points: [],
   },
   {
     code: "BTP/PJ-02",
     img: IMG_PUMP,
-    title: "Raw water pumping station upgrade",
-    scope: "Pumping systems",
+    title: "Government Sewage pumping & sewage treatment",
+    scope: "WASTEWATER & TREATMENT",
     description:
-      "Retrofit of an ageing raw water intake pump station — motor replacement, panel refurbishment, and testing — restoring design flow and cutting unplanned downtime.",
-    points: ["Motor & pump replacement", "Panel & instrumentation upgrade", "Performance testing"],
+      "Construction of critical wastewater infrastructure, featuring sewage treatment plants and heavy-duty pumping.",
+    points: [],
   },
   {
     code: "BTP/PJ-03",
     img: IMG_STP,
-    title: "Packaged sewage treatment plant — industrial campus",
-    scope: "Sewage management",
+    title: "intake bridge and jetty & intake barge",
+    scope: "STRUCTURAL & MARINE",
     description:
-      "Installation and O&M handover of a packaged sewage treatment plant serving an industrial campus — from civil interfaces to aeration systems and final effluent compliance testing.",
-    points: ["STP installation & integration", "Aeration & process systems", "Effluent compliance support"],
+      "Specialized structural engineering for raw water sourcing and floating barge deployment.",
+    points: [],
   },
   {
     code: "BTP/PJ-04",
     img: IMG_PIPELINE,
-    title: "Bulk water transmission pipeline works",
-    scope: "Water supply",
+    title: "construction of pumphouse and substation",
+    scope: "ELECTRICAL & CIVIL",
     description:
-      "Execution support for a bulk water transmission line — trenching, laying, jointing, and hydro-testing of large-diameter steel pipeline sections connecting source to treatment plant.",
-    points: ["Pipeline laying & jointing", "Hydro-testing & commissioning", "Route & trenching coordination"],
+      "Integrated civil and electrical works, including 33 kb substations, to power large-scale water networks.",
+    points: [],
   },
 ];
 
@@ -57,14 +57,16 @@ function ProjectDetails({ project }: { project: (typeof PROJECTS)[number] }) {
       <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-navy/50 mb-2">{project.scope}</p>
       <h3 className="font-display font-bold uppercase tracking-wide text-lg md:text-xl text-navy leading-snug">{project.title}</h3>
       <p className="mt-3 text-sm text-navy/65 leading-relaxed">{project.description}</p>
-      <ul className="mt-4 space-y-1.5">
-        {project.points.map((point) => (
-          <li key={point} className="flex items-center gap-2 text-xs font-medium text-navy/70 uppercase tracking-wide">
-            <span className="h-1 w-3 bg-bolt/80 inline-block" />
-            {point}
-          </li>
-        ))}
-      </ul>
+      {project.points.length > 0 ? (
+        <ul className="mt-4 space-y-1.5">
+          {project.points.map((point) => (
+            <li key={point} className="flex items-center gap-2 text-xs font-medium text-navy/70 uppercase tracking-wide">
+              <span className="h-1 w-3 bg-bolt/80 inline-block" />
+              {point}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </>
   );
 }
@@ -124,15 +126,15 @@ export function Projects() {
       <div className="mobile-section container py-20 md:py-28">
         <div className="grid gap-10 md:grid-cols-[1fr_1.5fr] md:items-end mb-10">
           <div>
-            <SectionLabel index="04" text="Completed Projects" />
+            <SectionLabel index="04" text="What We Deliver" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl text-navy">Delivered and running</h2>
           </div>
           <p className="text-navy/65 leading-relaxed max-w-lg">
-            Selected engagements from our portfolio of water infrastructure work. Each project closed the same way we run every system: on schedule, to specification, and handed over to reliable operation.
+            Selected capabilities from our portfolio of water and wastewater infrastructure work. We handle the development, construction, and commissioning of essential systems—ensuring each is built to specification and handed over for reliable, long-term operation.
           </p>
         </div>
 
-        <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-navy/45 mb-8">Sample portfolio — real project details replacing this shortly</p>
+
         <p className="mobile-project-hint font-mono text-[10px] tracking-[0.16em] uppercase text-navy/55 mb-4">
           Swipe across the project record
         </p>
@@ -162,7 +164,7 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="projects-stack divide-y divide-navy/12 border-y border-navy/12" role="list" aria-label="Completed project records">
+        <div className="projects-stack divide-y divide-navy/12 border-y border-navy/12" role="list" aria-label="What we deliver capability records">
           {PROJECTS.map((project, index) => (
             <article key={project.code} role="listitem" className="fade-up grid gap-6 md:grid-cols-[8rem_1fr_1.1fr] md:items-center py-10 md:py-12" data-delay={String(index * 110)}>
               <p className="font-mono text-bolt text-sm tracking-[0.18em]">{project.code}</p>
