@@ -11,7 +11,7 @@ const FOOTER_LINKS = [
   { label: "Overview", href: "#overview" },
   { label: "Services", href: "#services" },
   { label: "Operations", href: "#operations" },
-  { label: "Projects", href: "#projects" },
+  { label: "What We Deliver", href: "#projects" },
   { label: "Why BT Projects", href: "#why" },
   { label: "Contact", href: "#contact" },
 ];
@@ -40,7 +40,7 @@ export default function SiteFooter() {
                 <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mt-1 text-white/50">Private Limited</span>
               </span>
             </div>
-            <p className="mt-6 text-sm leading-relaxed text-white/65 max-w-sm">An engineering and infrastructure company focused on water supply, water and sewage management, and the operation and maintenance of related systems.</p>
+            <p className="mt-6 text-sm leading-relaxed text-white/65 max-w-sm">End-to-end critical infrastructure solutions across municipal and industrial water management, wastewater treatment, power distribution, and full-lifecycle asset support.</p>
           </motion.div>
 
           <motion.div initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={getRevealTransition(shouldReduceMotion, getMotionDelay(1))}>
@@ -65,7 +65,7 @@ export default function SiteFooter() {
 
         <motion.div className="footer-bottom mt-14 pt-6 border-t border-white/12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={getRevealTransition(shouldReduceMotion, 0.16)}>
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/45">© {new Date().getFullYear()} BT Projects Private Limited</p>
-          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/45">Sheet No. 01 — Water, moving when it must.</p>
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/45">Sheet No. 01 — Built for critical public utilities.</p>
         </motion.div>
       </div>
       <WaveDivider />

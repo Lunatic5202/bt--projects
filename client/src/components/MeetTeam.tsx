@@ -12,38 +12,38 @@ import { getRevealTransition } from "./motionTransitions";
 const TEAM_WORKSTREAMS = [
   {
     id: "delivery-engineering",
-    eyebrow: "01 — Delivery & engineering",
-    name: "Arun Mehta",
-    role: "Sample delivery profile",
+    eyebrow: "01 — TURNKEY DELIVERY",
+    name: "Project execution",
+    role: "Civil, mechanical & electrical",
     image: "/manus-storage/team-sample-arun-mehta_cba1713f.webp",
-    title: "Technical coordination",
+    title: "Built to specification",
     description:
-      "Planning, technical support, and delivery coordination for water and wastewater infrastructure work.",
-    focus: ["Work planning", "Asset context", "Technical follow-through"],
+      "End-to-end delivery across water supply, wastewater, pumping, intake structures, substations, and associated civil works.",
+    focus: ["Construction", "Installation", "Commissioning"],
     icon: Wrench,
   },
   {
     id: "field-operations",
-    eyebrow: "02 — Field operations",
-    name: "Neha Sen",
-    role: "Sample operations profile",
+    eyebrow: "02 — ASSET SUPPORT",
+    name: "Lifecycle support",
+    role: "Repair, rehabilitation & O&M",
     image: "/manus-storage/team-sample-neha-sen_ddf1221c.webp",
-    title: "Reliable routines",
+    title: "Performance that lasts",
     description:
-      "Operating discipline, maintenance coordination, and clear records that support dependable system performance.",
-    focus: ["Operating checks", "Maintenance rhythm", "Clear reporting"],
+      "Repair, maintenance, rehabilitation, and operational support for pumps, substations, chlorine equipment, and treatment assets.",
+    focus: ["Pump repairs", "Preventive maintenance", "Rehabilitation"],
     icon: LineChart,
   },
   {
     id: "client-coordination",
-    eyebrow: "03 — Client coordination",
-    name: "Rohan Iyer",
-    role: "Sample client profile",
+    eyebrow: "03 — OPERATIONAL CONTINUITY",
+    name: "Utility partnership",
+    role: "Reliable public infrastructure",
     image: "/manus-storage/team-sample-rohan-iyer_7ada1601.webp",
-    title: "One connected team",
+    title: "Keeping the work moving",
     description:
-      "A practical point of coordination across project updates, service requests, and next-step decisions.",
-    focus: ["Project updates", "Service requests", "Clear handovers"],
+      "Clear coordination across project delivery, service requirements, handover, and the next stage of long-term operation.",
+    focus: ["Clear handovers", "Service response", "Long-term performance"],
     icon: Users,
   },
 ] as const;
@@ -83,13 +83,13 @@ export function MeetTeam() {
           transition={getRevealTransition(shouldReduceMotion)}
         >
           <div>
-            <SectionLabel index="06" text="Meet the team" />
+            <SectionLabel index="06" text="How We Work" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl">
-              The people who keep the work moving
+              One connected team across the lifecycle
             </h2>
           </div>
           <p className="max-w-xl text-white/65 leading-relaxed md:justify-self-end">
-            A role-led view of the connected engineering, operations, and client coordination work behind each reliable handover.
+            From turnkey execution to ongoing operational support, we coordinate the disciplines that keep critical infrastructure reliable.
           </p>
         </motion.div>
 
@@ -102,13 +102,13 @@ export function MeetTeam() {
         >
           <div className="team-stack-intro">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bolt">
-              Operating together
+              Working across the lifecycle
             </p>
             <h3 className="mt-4 font-display text-2xl font-extrabold uppercase tracking-tight text-white">
-              Clear ownership across the work
+              Practical ownership from build to operation
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/62">
-              Browse the stack to see the three working lenses that keep projects aligned from technical planning through ongoing support.
+              Browse the stack to see how delivery, asset support, and operational continuity work together across every project.
             </p>
             <p className="team-stack-drag-hint mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
               Drag a card or use the controls
@@ -167,11 +167,11 @@ export function MeetTeam() {
                     <div className="team-stack-profile mt-6">
                       <img
                         src={card.image}
-                        alt={`Generic sample profile portrait for ${card.name}`}
+                        alt={`${card.name} capability workstream at BT Projects`}
                         className="team-stack-portrait"
                       />
                       <div>
-                        <p className="team-stack-sample-label">Sample profile</p>
+                        <p className="team-stack-sample-label">Capability workstream</p>
                         <p className="team-stack-name">{card.name}</p>
                         <p className="team-stack-role">{card.role}</p>
                       </div>

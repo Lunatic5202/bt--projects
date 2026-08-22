@@ -12,11 +12,13 @@ const enquirySchema = z.object({
   phone: z.string().max(32).optional(),
   company: z.string().max(160).optional(),
   serviceType: z.enum([
-    "Water supply",
-    "Sewage management",
-    "Pumping systems",
-    "O&M support",
-    "Equipment / facility support",
+    "Government water supply",
+    "Water management",
+    "Sewage pumping / STP",
+    "Chlorination systems",
+    "Pumping systems / repairs",
+    "Civil & electrical infrastructure",
+    "Operation & maintenance",
     "Not sure yet",
   ]),
   projectStage: z.enum([

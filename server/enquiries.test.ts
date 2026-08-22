@@ -28,10 +28,10 @@ const validEnquiry = {
   email: "jane@example.com",
   phone: "+91 98300 00000",
   company: "Example Utilities",
-  serviceType: "O&M support" as const,
+  serviceType: "Operation & maintenance" as const,
   projectStage: "Planned maintenance / O&M" as const,
   siteLocation: "Kolkata, West Bengal",
-  message: "We need O&M support for our pump station.",
+  message: "We need operation and maintenance support for our pump station.",
 };
 
 describe("enquiries.submit", () => {
@@ -47,7 +47,7 @@ describe("enquiries.submit", () => {
     const payload = vi.mocked(notifyOwner).mock.calls[0]?.[0];
     expect(payload?.title).toContain("Jane Doe");
     expect(payload?.content).toContain("pump station");
-    expect(payload?.content).toContain("O&M support");
+    expect(payload?.content).toContain("Operation & maintenance");
     expect(payload?.content).toContain("Kolkata, West Bengal");
   });
 
@@ -56,7 +56,7 @@ describe("enquiries.submit", () => {
     await caller.enquiries.submit({
       name: "Jane Doe",
       email: "jane@example.com",
-      serviceType: "Water supply",
+      serviceType: "Government water supply",
       projectStage: "New requirement",
       message: "Please assess a new distribution line.",
     });
@@ -66,7 +66,7 @@ describe("enquiries.submit", () => {
       email: "jane@example.com",
       phone: null,
       company: null,
-      serviceType: "Water supply",
+      serviceType: "Government water supply",
       projectStage: "New requirement",
       siteLocation: null,
       message: "Please assess a new distribution line.",
@@ -94,8 +94,8 @@ describe("enquiries.submit", () => {
 
   it("lists enquiries in reverse chronological order", async () => {
     vi.mocked(listEnquiries).mockResolvedValueOnce([
-      { id: 2, name: "B", email: "b@example.com", phone: null, company: null, serviceType: "Water supply", projectStage: "New requirement", siteLocation: null, message: "two", createdAt: new Date("2026-01-02") },
-      { id: 1, name: "A", email: "a@example.com", phone: null, company: null, serviceType: "Water supply", projectStage: "New requirement", siteLocation: null, message: "one", createdAt: new Date("2026-01-01") },
+      { id: 2, name: "B", email: "b@example.com", phone: null, company: null, serviceType: "Government water supply", projectStage: "New requirement", siteLocation: null, message: "two", createdAt: new Date("2026-01-02") },
+      { id: 1, name: "A", email: "a@example.com", phone: null, company: null, serviceType: "Government water supply", projectStage: "New requirement", siteLocation: null, message: "one", createdAt: new Date("2026-01-01") },
     ]);
     const caller = appRouter.createCaller(createPublicContext());
     const rows = await caller.enquiries.list();

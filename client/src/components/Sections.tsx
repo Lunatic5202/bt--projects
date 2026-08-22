@@ -35,23 +35,23 @@ type OverviewCard = {
 const OVERVIEW_CARDS: OverviewCard[] = [
   {
     icon: Droplets,
-    t: "Water supply",
-    d: "Systems that deliver clean water from source to point of use.",
+    t: "Government water supply",
+    d: "End-to-end infrastructure for reliable public water supply, from raw water intake through distribution.",
   },
   {
     icon: Recycle,
-    t: "Water & sewage management",
-    d: "Collection, conveyance, and treatment of water and wastewater.",
+    t: "Water management",
+    d: "Integrated systems for managing water resources, networks, treatment, and long-term asset performance.",
   },
   {
     icon: Gauge,
-    t: "Pumping & equipment",
-    d: "Installation, commissioning, and optimisation of pump systems.",
+    t: "Sewage pumping & treatment",
+    d: "Critical wastewater infrastructure spanning sewage pumping stations, treatment plants, and process systems.",
   },
   {
     icon: Wrench,
-    t: "Operation & maintenance",
-    d: "Planned, preventive care that keeps facilities running.",
+    t: "Civil, electrical & O&M",
+    d: "Construction, repair, rehabilitation, and operational support for the systems that keep utilities running.",
   },
 ];
 
@@ -172,10 +172,9 @@ export function Hero() {
             className="fade-up in-view mt-7 text-base md:text-lg leading-relaxed text-white/75 max-w-xl"
             style={{ transitionDelay: "140ms" }}
           >
-            BT Projects Private Limited provides technical support for essential
-            water and wastewater infrastructure — pumping systems, equipment,
-            and the facilities around them — built on reliable operation,
-            timely maintenance, and efficient system performance.
+            BT Projects Private Limited delivers end-to-end critical
+            infrastructure solutions across municipal and industrial water
+            management, wastewater treatment, and power distribution systems.
           </p>
           <div className="fade-up in-view mt-9 flex flex-wrap gap-4" style={{ transitionDelay: "220ms" }}>
             <a href="#services" className="fluid-btn bg-white text-navy font-semibold text-sm px-6 py-3 hover:bg-white/90">
@@ -190,10 +189,10 @@ export function Hero() {
         {/* stat strip */}
         <div className="hero-stat-strip fade-up in-view mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-white/20 pt-8 gap-8">
           {[
-            { k: "Water supply", v: "Intake to distribution" },
-            { k: "Sewage management", v: "Collection to treatment" },
-            { k: "Pumping systems", v: "Installed to optimised" },
-            { k: "O&M", v: "Planned, predictable uptime" },
+            { k: "Water supply", v: "Government infrastructure" },
+            { k: "Wastewater", v: "Pumping & treatment" },
+            { k: "Power distribution", v: "33 kV substations" },
+            { k: "Lifecycle support", v: "Repair, rehab & O&M" },
           ].map((s) => (
             <div key={s.k}>
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-bolt">
@@ -226,7 +225,7 @@ export function Overview() {
           >
             <SectionLabel index="01" text="Overview" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl text-navy">
-              Engineering the systems a city depends on
+              Infrastructure built for the full lifecycle
             </h2>
             <div className="mt-6 h-1 w-16 bg-bolt draw-line" />
           </motion.div>
@@ -237,17 +236,16 @@ export function Overview() {
             transition={getRevealTransition(shouldReduceMotion, 0.08)}
           >
             <p className="text-navy/85 text-base md:text-lg leading-relaxed">
-              BT Projects Private Limited is an engineering and infrastructure
-              company focused on <strong>water supply</strong>,{" "}
-              <strong>water and sewage management</strong>, and the{" "}
-              <strong>operation and maintenance</strong> of related systems.
+              BT Projects Private Limited is an infrastructure and engineering
+              company specializing in <strong>government water supply</strong>,{" "}
+              <strong>water management</strong>, wastewater and sewage infrastructure,
+              pumping systems, and associated electrical and civil infrastructure.
             </p>
             <p className="mt-5 text-navy/65 leading-relaxed">
-              We provide technical support for essential water and wastewater
-              infrastructure, including pumping systems, equipment, and
-              associated facilities — with a focus on reliable operation,
-              timely maintenance, and efficient system performance. When water
-              must flow, our engineering keeps it flowing.
+              We deliver end-to-end projects covering raw water pumping,
+              government water supply systems, sewage pumping stations, sewage
+              treatment plants, chlorination systems, and the civil, mechanical,
+              and electrical infrastructure that supports them.
             </p>
             <div className="overview-card-grid mt-10 grid sm:grid-cols-2 gap-px bg-navy/12 border border-navy/12 stagger">
               {OVERVIEW_CARDS.map((card, index) => (
@@ -272,23 +270,23 @@ const SERVICES = [
   {
     index: "02.1",
     img: IMG_PUMP,
-    title: "Water supply systems",
-    text: "End-to-end technical support for raw water intake, treatment, storage, and distribution. We work on the pumps, valves, pipelines, and instrumentation that move water reliably from source to consumer.",
-    points: ["Intake & raw water handling", "Treatment plant support", "Storage & distribution networks", "Instrumentation & control"],
+    title: "Government water supply systems",
+    text: "End-to-end infrastructure for raw water intake, treatment, storage, and distribution. We support the pumps, valves, pipelines, and instrumentation that move water reliably from source to consumer.",
+    points: ["Raw water intake", "Treatment & storage", "Distribution networks", "Instrumentation & control"],
   },
   {
     index: "02.2",
     img: IMG_SEWAGE,
-    title: "Water & sewage management",
-    text: "Collection, conveyance, and treatment of wastewater engineered for consistent performance — from sewerage networks and pumping stations to treatment facilities and discharge systems.",
-    points: ["Sewerage collection networks", "Sewage pumping stations", "Effluent treatment support", "Discharge compliance systems"],
+    title: "Wastewater & sewage infrastructure",
+    text: "Integrated wastewater infrastructure from sewage collection and pumping to sewage treatment plants, chlorination systems, and compliant discharge.",
+    points: ["Sewage pumping stations", "Sewage treatment plants", "Chlorination systems", "Water & wastewater management"],
   },
   {
     index: "02.3",
     img: IMG_MAINT,
-    title: "Pumping systems & equipment",
-    text: "Selection, installation, commissioning, and lifecycle care of pumping systems and associated mechanical and electrical equipment — matched to your flow, head, and duty requirements.",
-    points: ["Pump selection & installation", "Commissioning & testing", "Mechanical & electrical works", "Spares & retrofits"],
+    title: "Pumping, power & lifecycle support",
+    text: "Construction, installation, repair, rehabilitation, and operational support for pumping systems, pump houses, substations, and associated mechanical and electrical equipment.",
+    points: ["Pump houses & repairs", "33 kV substations", "Civil & electrical works", "Maintenance & rehabilitation"],
   },
 ];
 
@@ -375,13 +373,13 @@ export function Services() {
           <div>
             <SectionLabel index="02" text="Services" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl text-navy">
-              What we engineer
+              What we build and support
             </h2>
           </div>
           <p className="text-navy/65 leading-relaxed max-w-lg">
-            Three connected disciplines, delivered as one accountable
-            engagement — because water infrastructure only performs when every
-            subsystem is maintained to the same standard.
+            From turnkey execution to comprehensive operations and maintenance,
+            we build resilient systems for public utilities and large-scale water
+            networks across their complete project lifecycle.
           </p>
         </div>
 

@@ -41,26 +41,26 @@ const STEPS = [
   {
     icon: ClipboardCheck,
     n: "A",
-    t: "Assess",
-    d: "System surveys, condition audits, and performance baselining across pumps, pipelines, and plant equipment.",
+    t: "Plan",
+    d: "Project planning, site assessment, and technical coordination across pumps, pipelines, treatment facilities, and utilities.",
   },
   {
     icon: Wrench,
     n: "B",
-    t: "Maintain",
-    d: "Planned preventive maintenance schedules executed on time — mechanical, electrical, and instrumentation.",
+    t: "Build",
+    d: "Civil, mechanical, and electrical construction for water supply, wastewater, pumping, intake, and power-distribution systems.",
   },
   {
     icon: LineChart,
     n: "C",
-    t: "Operate",
-    d: "Day-to-day operation of water and wastewater systems to defined performance and flow targets.",
+    t: "Commission",
+    d: "Installation, testing, commissioning, and handover of pumping stations, treatment plants, chlorination systems, and substations.",
   },
   {
     icon: FileCheck2,
     n: "D",
-    t: "Report",
-    d: "Clear logs, performance reporting, and recommendations that keep every stakeholder informed.",
+    t: "Maintain",
+    d: "Repair, rehabilitation, operation, and maintenance support that protects reliability and long-term asset performance.",
   },
 ];
 
@@ -120,27 +120,27 @@ key={s.n}
 const WHY = [
   {
     icon: ShieldCheck,
-    t: "Reliable operation",
-    d: "Systems run to defined targets. We treat every breakdown as a process failure, not an event.",
-    note: "Defined operating checks and logged escalation routes.",
+    t: "Reliable infrastructure",
+    d: "We build and support critical systems that public utilities can depend on for safe, consistent performance.",
+    note: "Water supply, wastewater, pumping, and power-distribution capability.",
   },
   {
     icon: Clock3,
-    t: "Timely maintenance",
-    d: "Planned preventive schedules executed on calendar — so downtime is scheduled, not discovered.",
-    note: "Asset-based task plans with dates, ownership, and closure records.",
+    t: "Full lifecycle support",
+    d: "Our work continues beyond construction through repair, rehabilitation, operation, and maintenance.",
+    note: "Support from installation and commissioning through ongoing O&M.",
   },
   {
     icon: TrendingDown,
-    t: "Efficient performance",
-    d: "Continuous attention to energy, flow, and equipment health keeps lifetime costs down.",
-    note: "Readings that connect flow, pressure, energy, and equipment condition.",
+    t: "Integrated delivery",
+    d: "Civil, mechanical, and electrical disciplines work together so every subsystem performs as one.",
+    note: "Pump houses, substations, intake structures, treatment, and controls.",
   },
   {
     icon: Users,
-    t: "Accountable team",
-    d: "One engineering point of contact for pumps, plant, and pipelines — clarity instead of finger-pointing.",
-    note: "A coordinated field response across mechanical and electrical needs.",
+    t: "Operational resilience",
+    d: "Practical engineering and equipped repair facilities help keep essential systems running safely and efficiently.",
+    note: "Pump repairs, substation equipment, chlorine equipment, and field support.",
   },
 ];
 
@@ -259,13 +259,13 @@ export function Why() {
           <div>
             <SectionLabel index="05" text="Why BT Projects" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl text-navy">
-              The discipline behind the flow
+              Built for critical public utilities
             </h2>
           </div>
           <p className="text-navy/65 leading-relaxed">
-            Water infrastructure rewards firms that show up on schedule, know
-their equipment, and measure what they manage. That is the firm we
-built.
+            We provide integrated infrastructure solutions with a focus on
+            reliability, operational efficiency, long-term asset performance, and
+            sustainable water and wastewater management.
 </p>
         </motion.div>
 
@@ -449,8 +449,8 @@ className="why-principle-card fluid-card relative bg-white border border-navy/12
 /* ---------- Contact ---------- */
 export const COMPANY = {
   name: "BT Projects Private Limited",
-  business: "Water Solutions & Infrastructure",
-  focus: "Water supply · Sewage management · O&M",
+  business: "Water, Wastewater & Power Infrastructure",
+  focus: "Water supply · Sewage · Pumping · Civil & electrical works",
   email: "btprojects.official@btprojects.co.in",
   phone: "+033 3585 0822",
   address: "FE-159, FE Block, Sector 3, Bidhannagar, Kolkata, West Bengal 700106",
@@ -485,11 +485,13 @@ const INITIAL_ENQUIRY_FORM = {
 };
 
 const ENQUIRY_SERVICE_OPTIONS = [
-  "Water supply",
-  "Sewage management",
-  "Pumping systems",
-  "O&M support",
-  "Equipment / facility support",
+  "Government water supply",
+  "Water management",
+  "Sewage pumping / STP",
+  "Chlorination systems",
+  "Pumping systems / repairs",
+  "Civil & electrical infrastructure",
+  "Operation & maintenance",
   "Not sure yet",
 ] as const;
 
@@ -579,9 +581,10 @@ const submitMutation = trpc.enquiries.submit.useMutation({
               Start the conversation
             </h2>
             <p className="mt-5 text-navy/65 leading-relaxed max-w-md">
-              Whether it is a new water supply project, an underperforming pump
-              station, or long-term operation and maintenance, our engineers
-              will come back to you with a clear view of what is involved.
+              Connect with us to collaborate on sustainable, robust water and
+              wastewater infrastructure projects. We deliver end-to-end support
+              from construction and installation through maintenance, repair,
+              rehabilitation, and operational support.
             </p>
             <a
               href={WHATSAPP_URL}

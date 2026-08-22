@@ -1,7 +1,7 @@
 {
   "name": "BT Projects Private Limited",
   "short_name": "BT Projects",
-  "description": "Water supply, wastewater management, and infrastructure operations and maintenance support.",
+  "description": "Water supply, wastewater, pumping, power distribution, and full-lifecycle infrastructure support.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0A1F44",
