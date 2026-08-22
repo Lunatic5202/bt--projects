@@ -12,38 +12,38 @@ import { getRevealTransition } from "./motionTransitions";
 const TEAM_WORKSTREAMS = [
   {
     id: "delivery-engineering",
-    eyebrow: "01 — TURNKEY DELIVERY",
-    name: "Project execution",
-    role: "Civil, mechanical & electrical",
+    eyebrow: "ENGINEERING & MANAGEMENT",
+    name: "The Planners",
+    role: "Collective workforce",
     image: "/manus-storage/team-sample-arun-mehta_cba1713f.webp",
-    title: "Built to specification",
+    title: "Project Management & Planning",
     description:
-      "End-to-end delivery across water supply, wastewater, pumping, intake structures, substations, and associated civil works.",
-    focus: ["Construction", "Installation", "Commissioning"],
+      "The strategic minds driving our turnkey projects. Our engineering teams ensure every facility, pipeline, and substation is designed to exact specifications and delivered on schedule.",
+    focus: [],
     icon: Wrench,
   },
   {
     id: "field-operations",
-    eyebrow: "02 — ASSET SUPPORT",
-    name: "Lifecycle support",
-    role: "Repair, rehabilitation & O&M",
+    eyebrow: "ON-SITE EXECUTION",
+    name: "The Builders",
+    role: "Collective workforce",
     image: "/manus-storage/team-sample-neha-sen_ddf1221c.webp",
-    title: "Performance that lasts",
+    title: "Field Specialists & Construction Crew",
     description:
-      "Repair, maintenance, rehabilitation, and operational support for pumps, substations, chlorine equipment, and treatment assets.",
-    focus: ["Pump repairs", "Preventive maintenance", "Rehabilitation"],
+      "The frontline force building our infrastructure. Skilled in heavy civil works, mechanical installations, and electrical integration, they turn complex blueprints into running systems.",
+    focus: [],
     icon: LineChart,
   },
   {
     id: "client-coordination",
-    eyebrow: "03 — OPERATIONAL CONTINUITY",
-    name: "Utility partnership",
-    role: "Reliable public infrastructure",
+    eyebrow: "OPERATIONS SUPPORT",
+    name: "The Maintainers",
+    role: "Collective workforce",
     image: "/manus-storage/team-sample-rohan-iyer_7ada1601.webp",
-    title: "Keeping the work moving",
+    title: "Maintenance & Repairhouse Team",
     description:
-      "Clear coordination across project delivery, service requirements, handover, and the next stage of long-term operation.",
-    focus: ["Clear handovers", "Service response", "Long-term performance"],
+      "The dedicated professionals staffing our fully equipped repairhouse and field operations. They provide the ongoing diagnostics, pump repairs, and systemic support required for uninterrupted flow.",
+    focus: [],
     icon: Users,
   },
 ] as const;
@@ -83,13 +83,13 @@ export function MeetTeam() {
           transition={getRevealTransition(shouldReduceMotion)}
         >
           <div>
-            <SectionLabel index="06" text="How We Work" />
+            <SectionLabel index="06" text="Meet the team" />
             <h2 className="mt-5 font-display font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-4xl">
-              One connected team across the lifecycle
+              The people who keep the work moving
             </h2>
           </div>
           <p className="max-w-xl text-white/65 leading-relaxed md:justify-self-end">
-            From turnkey execution to ongoing operational support, we coordinate the disciplines that keep critical infrastructure reliable.
+            Our success is built on the collective expertise of our workforce. From site planning to execution and maintenance, our dedicated teams of engineers, technicians, and project managers work together to deliver and sustain critical infrastructure.
           </p>
         </motion.div>
 
@@ -102,13 +102,13 @@ export function MeetTeam() {
         >
           <div className="team-stack-intro">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-bolt">
-              Working across the lifecycle
+              Collective workforce
             </p>
             <h3 className="mt-4 font-display text-2xl font-extrabold uppercase tracking-tight text-white">
-              Practical ownership from build to operation
+              Expertise across the work
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/62">
-              Browse the stack to see how delivery, asset support, and operational continuity work together across every project.
+              Browse the gallery to meet the planners, builders, and maintainers behind every reliable handover.
             </p>
             <p className="team-stack-drag-hint mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
               Drag a card or use the controls
@@ -167,11 +167,11 @@ export function MeetTeam() {
                     <div className="team-stack-profile mt-6">
                       <img
                         src={card.image}
-                        alt={`${card.name} capability workstream at BT Projects`}
+                        alt={`Placeholder photo for ${card.name} at BT Projects`}
                         className="team-stack-portrait"
                       />
                       <div>
-                        <p className="team-stack-sample-label">Capability workstream</p>
+                        <p className="team-stack-sample-label">Collective workforce</p>
                         <p className="team-stack-name">{card.name}</p>
                         <p className="team-stack-role">{card.role}</p>
                       </div>
@@ -182,11 +182,13 @@ export function MeetTeam() {
                     <p className="mt-5 max-w-md text-sm leading-relaxed text-white/68">
                       {card.description}
                     </p>
-                    <ul className="team-stack-focus mt-auto grid gap-2 pt-6" aria-label={`${card.title} focus areas`}>
-                      {card.focus.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+                    {card.focus.length > 0 ? (
+                      <ul className="team-stack-focus mt-auto grid gap-2 pt-6" aria-label={`${card.title} focus areas`}>
+                        {card.focus.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </motion.article>
                 );
               })}
