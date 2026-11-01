@@ -69,3 +69,7 @@ pnpm build
 ```
 
 Keep company content factual and obtain approval before publishing company claims, contact changes or customer/project information.
+
+## License and ownership
+
+No open-source license is granted for this repository. It contains company/project work and may include operational details or third-party materials. Do not copy, modify, redistribute, or reuse it outside the authorized project context without approval from the relevant rights holder. Third-party dependencies remain under their own licenses.
