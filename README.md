@@ -2,15 +2,13 @@
 
 A full-stack web project for **B T Projects Private Limited**, an engineering and infrastructure company working in water supply, water and sewage management, and operation and maintenance of related systems.
 
-This repository contains the fuller application stack: a React frontend, server-side application/API code, shared types, database schema and deployment configuration. It is distinct from the lightweight marketing-site implementation in `blue-white-waterworks`.
+This repository contains a fuller application stack: React frontend, server-side application/API code, shared types, database schema and deployment configuration. It is distinct from the lightweight marketing-site implementation in `blue-white-waterworks`.
 
 ## Technology
-
 - React 19 and TypeScript
 - Vite
 - Express and tRPC
-- Drizzle ORM
-- MySQL driver (`mysql2`)
+- Drizzle ORM and MySQL (`mysql2`)
 - Tailwind CSS v4 and Radix UI components
 - Vitest
 - pnpm
@@ -26,7 +24,7 @@ pnpm install
 pnpm dev
 ```
 
-The development command starts the server entry point in watch mode. Review the server configuration and required environment variables before connecting a database or external services.
+Review server configuration and required environment variables before connecting a database or external services.
 
 ## Scripts
 
@@ -56,15 +54,13 @@ NOTES.md      Development continuity notes
 
 ## Enquiries and external services
 
-The repository includes server-side enquiry handling and notification-related code. Configure database and notification credentials in the deployment environment, not in source control. Treat submitted contact information as personal data: restrict access, avoid logging full enquiry contents, and use an approved retention policy.
+The repository includes server-side enquiry handling and notification-related code. Configure database and notification credentials in the deployment environment, not in source control. Treat submitted contact information as personal data: restrict access, avoid logging full enquiry contents and use an approved retention policy.
 
 ## Deployment
 
-See [DEPLOY.md](DEPLOY.md) for the repository's Vercel workflow notes. Confirm the required Vercel secrets and database configuration in the target project before enabling production deployment. A successful build alone does not prove that external services are configured.
+See [DEPLOY.md](DEPLOY.md) for the Vercel workflow notes. Confirm required Vercel secrets and database configuration in the target project before enabling production deployment. A successful build alone does not prove external services are configured.
 
 ## Development guidance
-
-Run the type check, tests and production build before shipping:
 
 ```bash
 pnpm check
@@ -72,4 +68,4 @@ pnpm test
 pnpm build
 ```
 
-Keep the marketing content factual and obtain approval before publishing company claims, contact changes or customer/project information.
+Keep company content factual and obtain approval before publishing company claims, contact changes or customer/project information.
